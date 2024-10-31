@@ -20,6 +20,9 @@ import { Files } from './files/entities/file.entity';
       database: process.env.DB_NAME,
       autoLoadEntities: true,
       synchronize: true,
+      ssl: {
+        rejectUnauthorized: false,
+      },
     }), FilesModule],
   controllers: [AppController],
   providers: [AppService],
