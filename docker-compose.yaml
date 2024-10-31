@@ -7,9 +7,9 @@ services:
     ports:
       - '5434:5432'
     environment:
-      POSTGRES_USER: ${DB_USERNAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME_DEV}
+      POSTGRES_PASSWORD: ${DB_PASSWORD_DEV}
+      POSTGRES_DB: ${DB_NAME_DEV}
     container_name: GestorDocumentalDB
     volumes:
       - ./DB_Data:/var/lib/postgresql/data
