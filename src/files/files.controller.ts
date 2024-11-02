@@ -46,7 +46,7 @@ export class FilesController {
     @Patch(':id')
     async updateFile(
         @Param('id') id: string,
-        @Body() updateData: UpdateFileDto, 
+        @Body() updateData: UpdateFileDto,
     ): Promise<Files> {
         try {
             const updatedFile = await this.filesService.updateFile(id, updateData);
