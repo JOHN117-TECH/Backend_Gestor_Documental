@@ -33,14 +33,16 @@ export class FilesController {
     @Post('upload')
     @UseInterceptors(FileInterceptor('file'))
     async uploadFile(@UploadedFile() file: Express.Multer.File) {
-        if (!file) {
-            throw new Error('File not provided');
+        try {
+            if (!file) {
+                throw new Error('File not provided');
+            }
+            const savedFile = await this.filesService.saveFileMetadata(file);
+            return { filename: savedFile.filename };
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-        // Guarda la metadata del archivo en la base de datos
-        const savedFile = await this.filesService.saveFileMetadata(file);
-
-        return { filename: savedFile.filename };
     }
 
     @Patch(':id')
@@ -79,6 +81,10 @@ export class FilesController {
     }
 
 
+    @Delete('allFilles')
+    async deleteAllFile() {
+        await this.filesService.getAllFiles()
+    }
 
     @Delete(':filename')
     async deleteFile(@Param('filename') filename: string) {

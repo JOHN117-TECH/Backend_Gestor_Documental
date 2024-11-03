@@ -1,0 +1,116 @@
+body {
+    background: #f1f1f1;
+}
+
+pre {
+    background-color: #f5f5f5;
+    padding: 0px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.code-container {
+    display: flex;
+    background-color: #f5f5f5;
+    padding: 0;
+    border-radius: 5px;
+    overflow: auto;
+    font-family: monospace;
+}
+
+.line-numbers {
+    text-align: right;
+    padding: 0 10px;
+    margin: 0;
+    border-right: 1px solid #ccc;
+    user-select: none;
+    color: #999;
+    line-height: 1.5em;
+    /* Ajustar si es necesario */
+}
+
+.code {
+    margin: 0;
+    padding: 10px 0 10px 10px;
+    /* Ajustar padding si es necesario */
+    white-space: pre-line;
+}
+
+.Contanier__Super {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Container__Father {
+    min-height: 100vh;
+    background-color: "#dbdbdb";
+}
+
+.Container__Grandpa {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0rem;
+
+}
+
+.Container__Great-grandfather {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.U-width--70 {
+    width: 70%;
+}
+
+.U-borderRaius {
+    border-radius: 1rem;
+}
+
+.U-a--styles {
+    text-decoration: none;
+    color: red;
+}
+
+.U-paddingLeft {
+    padding-left: 1rem;
+}
+
+.U-paddingTop {
+    padding-top: 1rem;
+}
+
+.U-paddingTop--2 {
+    padding-top: 2rem;
+}
+
+.U-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.U-alingItems {
+    display: flex;
+    align-items: center;
+}
+
+.U-color-green {
+    color: #45ff7a;
+}
+
+.U-color-yellow {
+    color: #ecfa52;
+}
+
+.U-color-salmon {
+    color: #f3817b;
+}
+
+.U-color-purple {
+    color: #ac89ed;
+}

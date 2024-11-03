@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { FilesModule } from './files/files.module';
 import { Files } from './files/entities/file.entity';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 
 @Module({
@@ -20,8 +20,10 @@ import { Files } from './files/entities/file.entity';
       database: process.env.DB_NAME,
       autoLoadEntities: true,
       synchronize: true,
-    }), FilesModule],
-  controllers: [AppController],
-  providers: [AppService],
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
+    }),
+    FilesModule],
 })
 export class AppModule { }

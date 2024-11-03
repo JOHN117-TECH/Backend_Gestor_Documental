@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="Container__Father U-center">
+        <h1>Welcome to My API Files</h1>
+        <p>
+            Here you will find the following endpoint of the service that you want
+            to consume
+        </p>
+        <div class="Container__Child U-center">
+            <ul>
+                <li class="U-alingItems">
+                    <div class="Contanier__Super">
+                        <div class="Container__Grandpa">
+                            <div class="Container__Great-grandfather">
+                                <h2><b class="U-color-green">GET</b> /files</h2>
+                                <p class="U-paddingLeft">
+                                    This endpoint returns all the files available in the service.
+                                </p>
+                            </div>
+                            <div class="U-alingItems U-paddingLeft">
+                                <a class="U-a--styles"
+                                    href="https://backendgestordocumental-production.up.railway.app/files"
+                                    target="_blank">
+                                    Click here to see the response
+                                </a>
+                            </div>
+                        </div>
+                        <div class="Container__Grandpa">
+                            <div class="Container__Great-grandfather">
+                                <h2><b class="U-color-green">GET</b> /files/:fileName</h2>
+                                <p class="U-paddingLeft">
+
+                                    Returns only one file corresponding to the provided fileName.
+                                </p>
+                            </div>
+                            <div class="U-alingItems U-paddingLeft">
+                                <a class="U-a--styles"
+                                    href="https://backendgestordocumental-production.up.railway.app/files/1730657335632-365112957-HERRAMIENTAS DE LOGICA COMPUTACIONAL.pdf"
+                                    target="_blank">
+                                    Click here to see the response
+                                </a>
+                            </div>
+                        </div>
+                        <div class="Container__Grandpa">
+                            <div class="Container__Great-grandfather">
+                                <h2><b class="U-color-yellow">POST</b> /files/upload</h2>
+                                <p class="U-paddingLeft">
+
+                                    Create a file and receive a file type field in the body
+                                </p>
+                            </div>
+                            <div class="U-alingItems U-paddingLeft">
+                                <img class="U-borderRaius" src="./assets/Post.png" alt="Metodo Post en Postman"
+                                    width="500" height="250" />
+
+                            </div>
+                        </div>
+                        <div class="Container__Grandpa">
+                            <div class="Container__Great-grandfather">
+                                <h2><b class="U-color-purple">PATCH</b> /files/:id</h2>
+                                <p class="U-paddingLeft U-width--70">
+                                    Updates the file depending on the given Id, receives the following json in the body,
+                                    all fields are optional.
+                                </p>
+                            </div>
+                            <div class="U-alingItems U-paddingLeft U-paddingTop--2">
+
+                                <div class="code-container">
+                                    <div class="line-numbers">
+                                        1<br />2<br />3<br />4<br />5<br />6<br />7
+                                    </div>
+                                    <div class="code">
+                                        {
+                                        "filename": "Lectura-20-fundamental-203.pdf",
+                                        "path": "uploads/Llectura-20-fundamental-203.pdf",
+                                        "mimetype": "application/pdf",
+                                        "size": 896398
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Container__Grandpa U-paddingTop--2">
+                            <div class="Container__Great-grandfather">
+                                <h2><b class="U-color-salmon">DELETE</b> /files/:fileName</h2>
+                                <p class="U-paddingLeft">
+                                    Delete the file depending on the fileName given
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

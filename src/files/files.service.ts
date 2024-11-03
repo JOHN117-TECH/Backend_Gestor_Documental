@@ -99,6 +99,29 @@ export class FilesService {
         }
     }
 
+    async deleteAllFiles(): Promise<string> {
+        try {
+            const files = await this.fileRepository.find();
+            // Recorre y elimina cada archivo de la carpeta 'uploads'
+            for (const file of files) {
+                try {
+                    await fs.unlink(`./uploads/${file.path}`);
+                    console.log(`File ${file.path} deleted successfully from uploads folder.`);
+                } catch (error) {
+                    console.error(`Error deleting file ${file.path} from uploads folder:`, error);
+                }
+            }
+            // Elimina todos los registros de la base de datos
+            await this.fileRepository.clear();
+            console.log('All files have been deleted from the database.');
+
+            return 'All files have been deleted from the database and uploads folder.';
+        } catch (error) {
+            console.error('Error deleting all files:', error);
+            throw new Error('Failed to delete all files');
+        }
+    }
+
     async getAllFiles(): Promise<Files[]> {
         return await this.fileRepository.find();
     }
