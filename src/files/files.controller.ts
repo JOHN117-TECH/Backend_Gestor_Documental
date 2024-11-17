@@ -19,8 +19,11 @@ import { FilesService } from './files.service';
 import { Response } from 'express';
 import { Files } from './entities/file.entity';
 import { UpdateFileDto } from './dtos/update-file.dto';
+import { fileFilter, fileNamer } from './helpers';
+import { diskStorage } from 'multer';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
-
+@ApiTags('Files')
 @Controller('files')
 export class FilesController {
     constructor(private readonly filesService: FilesService) { }
@@ -31,7 +34,14 @@ export class FilesController {
     }
 
     @Post('upload')
-    @UseInterceptors(FileInterceptor('file'))
+    @ApiResponse({ status: 201, description: 'File was created successfully', example: "Mapa_de_los_sueÃ±os.pdf" })
+    @UseInterceptors(FileInterceptor('file', {
+        fileFilter: fileFilter,
+        storage: diskStorage({
+            destination: './uploads',
+            filename: fileNamer
+        })
+    }))
     async uploadFile(@UploadedFile() file: Express.Multer.File) {
         try {
             if (!file) {
@@ -46,6 +56,7 @@ export class FilesController {
     }
 
     @Patch(':id')
+    @ApiResponse({ status: 200, description: 'File was updated successfully', type: Files })
     async updateFile(
         @Param('id') id: string,
         @Body() updateData: UpdateFileDto,
