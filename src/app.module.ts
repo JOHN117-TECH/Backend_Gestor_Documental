@@ -21,9 +21,9 @@ import { join } from 'path';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    ServeStaticModule.forRoot({
+    /* ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
-    }),
+    }), */
     FilesModule],
 })
 export class AppModule { }
